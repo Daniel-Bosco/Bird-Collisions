@@ -67,6 +67,6 @@ class ReportsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def report_params
-      params.require(:report).permit(:airline_expense, :airport_expense, :insurance_expense, :public_expense, :delayed_reports, :fatal_victims)
+      params.require(:report).permit(:airline_expense, :airport_expense, :insurance_expense, :public_expense, :delayed_flights, :fatal_victims)
     end
 end
