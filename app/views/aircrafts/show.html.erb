@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @aircraft.category %>
+</p>
+
+<p>
+  <strong>Certification:</strong>
+  <%= @aircraft.certification %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @aircraft.model %>
+</p>
+
+<%= link_to 'Edit', edit_aircraft_path(@aircraft) %> |
+<%= link_to 'Back', aircrafts_path %>

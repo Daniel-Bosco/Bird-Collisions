@@ -1,0 +1,47 @@
+<%= form_with(model: aircraft) do |form| %>
+  <% if aircraft.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(aircraft.errors.count, "error") %> prohibited this aircraft from being saved:</h2>
+
+      <ul>
+        <% aircraft.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :category %>
+    <select name="aircraft[category]">
+      <option value="Airplane">Airplane</option>
+      <option value="Rotorcraft">Rotorcraft</option>
+      <option value="Powered lift">Powered lift</option>
+      <option value="Glider">Glider</option>
+      <option value="Lighter than air">Lighter than air</option>
+      <option value="Powered parachute">Powered parachute</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <%= form.label :certification %>
+    <select name="aircraft[certification]">
+      <option value="Transport">Transport</option>
+      <option value="Normal">Normal</option>
+      <option value="Utility">Utility</option>
+      <option value="Acrobatic">Acrobatic</option>
+      <option value="Restricted">Restricted</option>
+      <option value="Limited">Limited</option>
+      <option value="Provisional">Provisional</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <%= form.label :model %>
+    <%= form.text_field :model %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

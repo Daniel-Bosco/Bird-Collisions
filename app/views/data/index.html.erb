@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<div class="d-flex justify-content-between">
+  <div><h1>Data</h1></div>
+  <div class="ms-5"><%= paginate @data, window: 3, outer_window: 3 %></div>
+</div>
+
+<table class="table table-striped table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Date</th>
+      <th>Flight phase</th>
+      <th>Airport</th>
+      <th>Flight id</th>
+      <th>Weather id</th>
+      <th>Report id</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @data.each do |datum| %>
+      <tr>
+        <td><%= datum.date.to_formatted_s(:long_ordinal) %></td>
+        <td><%= datum.flight_phase %></td>
+        <td><%= datum.airport.name %></td>
+        <td><%= link_to datum.flight_id, flights_url(flight_id: datum.flight_id), class: 'text-decoration-none' %></td>
+        <td><%= link_to datum.weather_id, weathers_url(weather_id: datum.weather_id), class: 'text-decoration-none' %></td>
+        <td><%= link_to datum.report_id, reports_url(report_id: datum.report_id), class: 'text-decoration-none' %></td>
+        <td><% if can? :show, Datum %><%= link_to 'Show', datum, class: 'btn btn-sm btn-primary' %><% end %></td>
+        <td><% if can? :update, Datum %><%= link_to 'Edit', edit_datum_path(datum), class: 'btn btn-sm btn-secondary' %><% end %></td>
+        <td><% if can? :destroy, Datum %><%= link_to 'Destroy', datum, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %><% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if can? :create, Datum %><%= link_to 'New Datum', new_datum_path, class: 'btn btn-sm btn-success' %><% end %>

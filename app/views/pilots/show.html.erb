@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @pilot.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @pilot.last_name %>
+</p>
+
+<p>
+  <strong>Privilege level:</strong>
+  <%= @pilot.privilege_level %>
+</p>
+
+<p>
+  <strong>Document:</strong>
+  <%= @pilot.document %>
+</p>
+
+<p>
+  <strong>Birth date:</strong>
+  <%= @pilot.birth_date.to_formatted_s(:long_ordinal) %>
+</p>
+
+<%= link_to 'Edit', edit_pilot_path(@pilot) %> |
+<%= link_to 'Back', pilots_path %>

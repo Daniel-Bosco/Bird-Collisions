@@ -1,0 +1,28 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: ec2-52-0-114-209.compute-1.amazonaws.com
+  port: 5432
+  database: d6ql219cfrqooc
+  pool: 5
+  username: degssedvzpkrad
+  password: e1476938cb387c62dafcd159bf0010c91a9c2f329fb573b9b13b148ba12fdcc1
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
+
+  Host
+ec2-52-0-114-209.compute-1.amazonaws.com
+Database
+d6ql219cfrqooc
+User
+degssedvzpkrad
+Port
+5432
+Password

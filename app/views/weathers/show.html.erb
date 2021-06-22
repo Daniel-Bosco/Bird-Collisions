@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Celsius temperature:</strong>
+  <%= @weather.celsius_temperature %>
+</p>
+
+<p>
+  <strong>Humidity:</strong>
+  <%= @weather.humidity %>
+</p>
+
+<p>
+  <strong>Wind speed:</strong>
+  <%= @weather.wind_speed %>
+</p>
+
+<p>
+  <strong>Average rainfall:</strong>
+  <%= @weather.average_rainfall %>
+</p>
+
+<p>
+  <strong>Insolation:</strong>
+  <%= @weather.insolation %>
+</p>
+
+<%= link_to 'Edit', edit_weather_path(@weather) %> |
+<%= link_to 'Back', weathers_path %>

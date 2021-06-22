@@ -1,0 +1,55 @@
+<ul class="navbar-nav me-auto mb-2 mb-xl-0">
+  <li class="nav-item">
+    <% if can? :read, State %><%= link_to "States", states_url, class: "nav-link active" %><% end %>
+  </li>
+  <li class="nav-item">
+    <% if can? :read, City %><%= link_to "Cities", cities_url, class: "nav-link active" %><% end %>
+  </li>
+  <li class="nav-item">
+    <% if can? :read, Airport %><%= link_to "Airports", airports_url, class: "nav-link active" %><% end %>
+  </li>
+  <li class="nav-item">
+    <% if can? :read, Bird %><%= link_to "Birds", birds_url, class: "nav-link active" %><% end %>
+  </li>
+  <li class="nav-item">
+    <% if can? :read, Pilot %><%= link_to "Pilots", pilots_url, class: "nav-link active" %><% end %>
+  </li>
+  <li class="nav-item">
+    <% if can? :read, Aircraft %><%= link_to "Aircrafts", aircrafts_url, class: "nav-link active" %><% end %>
+  </li>
+  <li class="nav-item">
+    <% if can? :read, Flight %>
+      <% if current_user.id == 1 %>
+        <%= link_to "Flights", flights_url, class: "nav-link active" %>
+      <% end %>
+    <% end %>
+  </li>
+  <li class="nav-item">
+    <% if can? :read, Report %>
+      <% if current_user.id == 1 %>
+        <%= link_to "Reports", reports_url, class: "nav-link active" %>
+      <% end %>
+    <% end %>
+  </li>
+  <li class="nav-item">
+    <% if can? :read, Weather %>
+      <% if current_user.id == 1 %>
+        <%= link_to "Weathers", weathers_url, class: "nav-link active" %>
+      <% end %>
+    <% end %>
+  </li>
+  <li class="nav-item">
+    <% if can? :read, Datum %>
+      <% if current_user.id == 1 %>
+        <%= link_to "Data", data_url, class: "nav-link active" %>
+      <% end %>
+    <% end %>
+  </li>
+  <li class="nav-item">
+    <% if can? :read, Collision %>
+      <% if current_user.id == 1 %>
+        <%= link_to "Collisions", collisions_url, class: "nav-link active" %>
+      <% end %>
+    <% end %>
+  </li>
+</ul>

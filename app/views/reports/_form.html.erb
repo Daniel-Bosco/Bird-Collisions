@@ -1,0 +1,47 @@
+<%= form_with(model: report) do |form| %>
+  <% if report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(report.errors.count, "error") %> prohibited this report from being saved:</h2>
+
+      <ul>
+        <% report.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :airline_expense %>
+    <%= form.text_field :airline_expense %>
+  </div>
+
+  <div class="field">
+    <%= form.label :airport_expense %>
+    <%= form.text_field :airport_expense %>
+  </div>
+
+  <div class="field">
+    <%= form.label :insurance_expense %>
+    <%= form.text_field :insurance_expense %>
+  </div>
+
+  <div class="field">
+    <%= form.label :public_expense %>
+    <%= form.text_field :public_expense %>
+  </div>
+
+  <div class="field">
+    <%= form.label :delayed_flights %>
+    <%= form.number_field :delayed_flights %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fatal_victims %>
+    <%= form.number_field :fatal_victims %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

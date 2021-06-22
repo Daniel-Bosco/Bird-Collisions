@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bird:</strong>
+  <%= @collision.bird.common_name %>
+</p>
+
+<p>
+  <strong>Datum:</strong>
+  <%= @collision.datum_id %>
+</p>
+
+<%= link_to 'Edit', edit_collision_path(@collision) %> |
+<%= link_to 'Back', collisions_path %>

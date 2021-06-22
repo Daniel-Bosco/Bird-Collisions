@@ -1,0 +1,50 @@
+<%= form_with(model: pilot) do |form| %>
+  <% if pilot.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pilot.errors.count, "error") %> prohibited this pilot from being saved:</h2>
+
+      <ul>
+        <% pilot.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :privilege_level %>
+    <select name="pilot[privilege_level]">
+      <option value="Student pilot">Student pilot</option>
+      <option value="Sport pilot">Sport pilot</option>
+      <option value="Recreational pilot">Recreational pilot</option>
+      <option value="Private pilot">Private pilot</option>
+      <option value="Commercial pilot">Commercial pilot</option>
+      <option value="Airline transport pilot">Airline transport pilot</option>
+      <option value="Remote pilot">Remote pilot</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <%= form.label :document %>
+    <%= form.number_field :document %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birth_date %>
+    <%= form.date_select :birth_date, start_year: 1914, end_year: (Date.current.year - 18), use_two_digit_numbers: true, order: [:day,:month,:year] %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

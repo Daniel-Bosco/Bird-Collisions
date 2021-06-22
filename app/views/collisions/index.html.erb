@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<div class="d-flex justify-content-between">
+  <div><h1>Collisions</h1></div>
+  <div class="ms-5"><%= paginate @collisions, window: 3, outer_window: 3 %></div>
+</div>
+
+<table class="table table-striped table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Bird</th>
+      <th>Datum</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @collisions.each do |collision| %>
+      <tr>
+        <td><%= collision.bird.common_name %></td>
+        <td><%= link_to collision.datum_id, data_url(datum_id: collision.datum_id), class: 'text-decoration-none' %></td>
+        <td><% if can? :show, Collision %><%= link_to 'Show', collision, class: 'btn btn-sm btn-primary' %><% end %></td>
+        <td><% if can? :update, Collision %><%= link_to 'Edit', edit_collision_path(collision), class: 'btn btn-sm btn-secondary' %><% end %></td>
+        <td><% if can? :destroy, Collision %><%= link_to 'Destroy', collision, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %><% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if can? :create, Collision %>
+<%= link_to 'New Collision', new_flight_path, class: 'btn btn-sm btn-success' %>
+<%= link_to 'Use last datum', new_collision_path, class: 'btn btn-sm btn-success' %>
+<%#= link_to 'New Collision', new_collision_path %>
+<% end %>

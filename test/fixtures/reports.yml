@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  airline_expense: 1.5
+  airport_expense: 1.5
+  insurance_expense: 1.5
+  public_expense: 1.5
+  delayed_flights: 1
+  fatal_victims: 1
+
+two:
+  airline_expense: 1.5
+  airport_expense: 1.5
+  insurance_expense: 1.5
+  public_expense: 1.5
+  delayed_flights: 1
+  fatal_victims: 1

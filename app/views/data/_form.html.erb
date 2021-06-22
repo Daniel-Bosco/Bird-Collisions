@@ -1,0 +1,53 @@
+<%= form_with(model: datum) do |form| %>
+  <% if datum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(datum.errors.count, "error") %> prohibited this datum from being saved:</h2>
+
+      <ul>
+        <% datum.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :flight_phase %>
+    <select name="datum[flight_phase]">
+      <option value="Takeoff">Takeoff</option>
+      <option value="Climb">Climb</option>
+      <option value="Cruise">Cruise</option>
+      <option value="Descent">Descent</option>
+      <option value="Approach">Approach</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <%= form.label :airport_id %>
+    <%= form.collection_select(:airport_id, Airport.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :flight_id %>
+    <input type="text" name="datum[flight_id]" value="<%= (Flight.last).id %>" placeholder="<%= (Flight.last).id %>" readonly>
+  </div>
+
+  <div class="field">
+    <%= form.label :weather_id %>
+    <input type="text" name="datum[weather_id]" value="<%= (Weather.last).id %>" placeholder="<%= (Weather.last).id %>" readonly>
+  </div>
+
+  <div class="field">
+    <%= form.label :report_id %>
+    <input type="text" name="datum[report_id]" value="<%= (Report.last).id %>" placeholder="<%= (Report.last).id %>" readonly>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
